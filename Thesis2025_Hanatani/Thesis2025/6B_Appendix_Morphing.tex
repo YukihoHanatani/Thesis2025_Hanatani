@@ -1,0 +1,108 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{音声モーフィングの手続き}
+\label{sec:MorphingAppendix}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+音声分析変換合成システムWORLD\cite{morise2016world}を用いた音声モーフィング用のツール群\cite{kawahara2024interactive,kawahara2024WORLDGUI}を用いて、
+実験刺激音の合成を行なった。
+本章では実際に行った手続きについて説明する。
+
+%%--------------------------------------------------------------
+\section{事前準備：WorldHandlerを用いた音声分析}
+\label{sec:WORLDHandler}
+%%--------------------------------------------------------------
+まず、WORLDの分析用ツール（WorldHandler）を用いて、音声の分析を行った（図\ref{fig:worldHandler}）。
+
+
+% % ----------------------------------%
+% \begin{figure}[h]
+%   \vspace{10pt}
+%   \centering
+%   \includegraphics[width = 1\columnwidth]{Figure/Appendix/6B/worldHandler_GUI.eps} % 2022花谷卒論より
+%   \caption{
+%     WorldHandlerの操作画面
+%     }
+%   \label{fig:worldHandler}
+% \end{figure}
+% % ----------------------------------%
+
+
+
+% 本実験ではWORLDを基盤として開発されたツール群\cite{worldGUI}を用いて,実験刺激音の合成を行なった.ここではその詳細な手順を述べる.なお,これらのツール群はGitHubで公開されている\cite{worldGUIgit}.
+
+% \section{基本的な音声の分析と合成}
+% 音声合成の下準備として,worldHandlerを用いて音声の基本周波数,非周期成分,スペクトル包絡の分析を行った.\ref{fig:worldHand}にworldHandlerのGUIを示す.
+
+% 左側のパネルには操作用のボタンが,右側のパネルには情報を可視化したものが表示されている.左側パネル最上段のRead Soundボタンのクリックにより,音声ファイルを選択して読み込む.次の段のFo extractionボタンのクリックにより,基本周波数が求められる.右側パネルの中段画面で,音声の有声区間と無声区間の境界線を手作業で調整できる.Play originalと,さらにその下のPlay VoicedとPlayUVボタンは,有声/無声境界を試聴で確認するためのものである.Aperiodicityボタンをクリックすると,設定された基本周波数と有声/無声境界に基づいて,非周期性指標が計算される.Spectrumボタンのクリックによりスペクトル包絡を求め,
+% Synthesisボタンで合成音声を作成して,分析結果をファイルとして保存する.
+
+
+% \begin{figure}[h]
+% \vspace{20pt}
+% \centering
+% \includegraphics[width=0.8\hsize]{Figs/Exp2022/worldHandler_GUI.png}
+% \caption{worldHandlerのGUI}
+% \label{fig:worldHand}
+% \end{figure}
+
+
+% \section{基本周波数と声道長の調整}
+% 男女1名ずつの原音声の声道長と基本周波数をworldManipulatorを用いて調整し,話者数を男女5名ずつに増やした.図\ref{fig:worldManip}にworldManipulatorのGUIを示す.
+
+% 左の最上段のREAD Parameterボタンにより,worldHandlerにより分析され格納されたパラメタを読み込む.読み込まれたパラメタは,右側のパネルのグラフに可視化される.最上段は,波形とパワーの系列を示している.この表示とその下のスペクトログラムの表示,さらに最下部の基本周波数の表示は,MATLABの機能により時間軸が連動しており,拡大・移動などの操作は全ての表示に即座に反映される.
+
+% 基本周波数は,左パネルの3つのスライダーのうち中央のスライダーを操作することで調整できる.スライダー下部のボックスに直接数値を入力することでも操作可能である.声道長の調整には,3つのスライダーのうち右側のスライダーもしくはボックスを用いる.このようにして基本周波数と声道長を調整した音声は,SAVE Parameterボタンのクリックにより保存される.
+
+
+% \begin{figure}[h]
+% \vspace{20pt}
+% \centering
+% \includegraphics[width=0.8\hsize]{Figs/Exp2022/worldManipulator_GUI.png}
+% \caption{worldManipulatorのGUI}
+% \label{fig:worldManip}
+% \end{figure}
+
+% \section{モーフィング}
+% 音声モーフィングは2つのツールを用いて行う.morphingAlignerで音声のスペクトログラムに特徴点をつけ,その結果のパラメタをもとにmorphingSoundGeneratorでモーフィング率を設定してモーフィングする.
+
+% \subsection{morpfhingAligner}
+% 図\ref{fig:morpAligner} に,二つの事例間の対応の調整を支援するツールであるmorphingAlignerのGUIを示す.これらの図は,対応が調整された後の状態を示している.
+
+% (a)は,固定して表示されるスペクトログラムとその上に配置された目印を示す.この例では男性の「喜び」感情の音声を固定されるもの(Cannonical)として用いた.(b)は,時間軸と時間周波数上の点を操作して変形されたスペクトログラムを示す.この例では男性の「悲しみ」感情の音声を変形されるもの(NL-TFaxis)として用いた.(c)は,スペクトログラムの透明度を50\%に調整して重ねたものである.
+
+% 実際の操作は,まずCannonicalとNL-TFaxisのパラメタを読み込み,目印として縦の白線を入れて波形の重なりを調整する.次に,(b)のNL-TFaxisの表示にしてスペクトログラムに特徴点（白円）をつける.(a)のCannonical表示にすると,NL-TFaxisのスペクトログラムに打った特徴点が表示されるので,Canonnicalのスペクトログラムに合わせてずれをなくすように調整する.（c）のVariable表示で,２つのスペクトログラムが重なった状態を確認できる.最後に,Synthesisボタンを押すことで音声合成し,SAVE m-Objectボタンで操作結果をモーフィングオブジェクトとして保存する.
+
+
+% \begin{figure}[!ht]
+% \begin{center}
+% \subfigure[]{
+% \includegraphics[width=0.6\hsize]{Figs/Exp2022/morpA_GUI1.png}}
+% \vspace{10pt}
+
+% \subfigure[]{
+% \includegraphics[width=0.6\hsize]{Figs/Exp2022/morpA_GUI2.png}
+% \vspace{10pt}}
+
+% \subfigure[]{
+% \includegraphics[width=0.6\hsize]{Figs/Exp2022/morpA_GUI3.png}}
+% \vspace{10pt}
+
+% \end{center}
+% \caption{morphingAlignerのGUI}
+% \label{fig:morpAligner}
+% \vspace{50pt}
+% \end{figure}
+
+% \newpage
+% \subsection{morphingSoundGenerator}
+% morphingAlignerで保存されたモーフィングオブジェクトを読み込み,モーフィング率を調整してモーフィングする.図\ref{fig:morphSG}にmorphingSoundGeneratorのGUIを示す.
+
+% READ LボタンとREAD Rボタンをクリックし,それぞれモーフィングオブジェクトを読み込む.この例では,L側に男声の「喜び」感情音声,R側に男声の「悲しみ」感情音声を読み込んでいる.複数あるスライダーの内,最上部のスライダーで全体のモーフィング率を操作できる.SYNTHESISボタンをクリックしてから,スライダーの任意の位置をクリックすると,即座にそのモーフィング率の音声が再生される.下の4つのスライダーでは5つの属性（周波数軸・時間軸・スペクトルレベル・基本周波数・非周期成分）のモーフィング率を個別に設定できる.本実験では,全体のモーフィング率だけを操作した.スライダーを0にした状態,すなわち「喜び」割合100\%の状態でASSIGN　Aボタンを,スライダーを1にした状態,すなわち「喜び」割合0\%の状態でASSIGN Bボタンをクリックして状態をそれぞれ割り当てる.これにより,AとB,つまり「喜び」割合が$0 \sim 100$\%の間でモーフィングが可能となる.右側のstepsで作成する刺激連続体の個数を選択して,CHECKボタンで音声を聴いて確認できる.この例では,stepsは11なので「喜び」割合が0,10,20,30,40,50,60,70,80,90,100\%のモーフィング音が合成される.GENERATEボタンをクリックすると,音声が合成され,wavファイルとして保存される.ここで保存された音声が,実際に実験に用いた刺激音である.
+
+
+% \begin{figure}[h]
+% \vspace{20pt}
+% \centering
+% \includegraphics[width=0.8\hsize]{Figs/Exp2022/MSG_GUI.png}
+% \caption{morphingSoundGeneratorのGUI}
+% \label{fig:morphSG}
+% \end{figure}
